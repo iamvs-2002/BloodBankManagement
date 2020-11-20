@@ -282,8 +282,10 @@ public class signup extends JFrame implements ActionListener {
 						else
 						{
 							c.s.executeUpdate(query);
+							//executeUpdate is used to save the data into the database
 							String query3="select UserID from user where phonenumber='"+JT5.getText()+"'";
 							ResultSet rs=c.s.executeQuery(query3);
+							//executeQuery is used to retrieve the data from the database
 							if(rs.next())
 							{
 								String ID=rs.getString("UserID");
