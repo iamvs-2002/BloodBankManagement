@@ -16,7 +16,7 @@ public class login extends JFrame implements ActionListener
 	  To implement the ActionListener, we need to override the actionPerformed method.
 	*/
 	JLabel JL1,JL3,JL4; //These are basically the text views
-	JComboBox JCB1;
+	JComboBox JCB1; //dropdown menu option
 	JTextField JT1,JT2; //These are the places where user enters the data (edit texts)
 	JPasswordField JP1; //The text field in which the input method is of type password.
 	JButton JB1,JB2,JB3,JB4,JB5; //The buttons
