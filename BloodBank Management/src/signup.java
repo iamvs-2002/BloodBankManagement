@@ -241,6 +241,7 @@ public class signup extends JFrame implements ActionListener {
 						JOptionPane.showMessageDialog(null,"UserName Cannot be Empty");
 					}
 					else if(checkDate((String)JCB1.getSelectedItem(),(String)JCB2.getSelectedItem(),(String)JCB3.getSelectedItem()))
+					//getSelectedItem() is used to retrieve the data selected from the drop down menu, i.e.combo box
 					{//checks if the dob is invalid
 						JOptionPane.showMessageDialog(null,"Invalid Date");
 					}
