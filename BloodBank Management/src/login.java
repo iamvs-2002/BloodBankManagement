@@ -143,14 +143,14 @@ public class login extends JFrame implements ActionListener
 				{
 					if(JCB1.getSelectedItem().equals("ID")) //if the user is logging in using his user id
 					{
-						query="select*from login where UserID='"+user+"'and password='"+password+"'";
+						query="select*from user where UserID='"+user+"'and password='"+password+"'";
 						ResultSet r=c.s.executeQuery(query); //it stores the result of executing an SQL query  
 						if(r.next())
 						//to retrieve the data from the database we use next().
 						//it jumps column by column till it reaches the last column
 						//we are using it to match the user entered data to the database
 						{
-							q2="select post from login where UserID='"+user+"'";
+							q2="select post from user where UserID='"+user+"'";
 							ResultSet rs=c.s.executeQuery(q2);
 							if(rs.next())
 							{
@@ -167,26 +167,22 @@ public class login extends JFrame implements ActionListener
 								{
 									setVisible(false);
 									new staff().setVisible(true); //opens the home_donor class
-								}else if(JR1.getSelectedItem().equals("Admin"))
-								{
-									setVisible(false);
-									new Admin().setVisible(true);  //opens the home_donor class
 								}
 							}
 						}
 						else
-						//if thae user entered data does not match with the database
+						//if the user entered data does not match with the database
 						{
 							JOptionPane.showMessageDialog(null,"Invalid UserID or Password"); //used to give a pop up message
 						}
 					}
 					else //if the user is logging in using his phone number
 					{
-						query="select*from login where phonenumber='"+user+"'and password='"+password+"'";
+						query="select*from user where phonenumber='"+user+"'and password='"+password+"'";
 						ResultSet r=c.s.executeQuery(query);
 						if(r.next())
 						{
-							q2="select post from login where phonenumber='"+user+"'";
+							q2="select post from user where phonenumber='"+user+"'";
 							ResultSet rs=c.s.executeQuery(q2);
 							if(rs.next())
 							{
@@ -218,7 +214,7 @@ public class login extends JFrame implements ActionListener
 					JT2=new JTextField(10);
 					String ID=JOptionPane.showInputDialog(JT2,"Enter ID");
 					String phonenumber=JOptionPane.showInputDialog(JT2,"Enter Phone Number");
-					String fp="select * from login where UserID="+"'"+ID+"'"+"AND phonenumber=" +"'"+phonenumber+"'";
+					String fp="select * from user where UserID="+"'"+ID+"'"+"AND phonenumber=" +"'"+phonenumber+"'";
 					ResultSet q=c.s.executeQuery(fp);
 					if(q.next())
 					{
