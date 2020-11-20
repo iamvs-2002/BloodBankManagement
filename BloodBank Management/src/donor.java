@@ -112,7 +112,7 @@ public class donor extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		connect c=new connect();
-		String q2="select*from login where UserID='"+JT1.getText()+"' AND phonenumber='"+JT2.getText()+"'";
+		String q2="select*from user where UserID='"+JT1.getText()+"' AND phonenumber='"+JT2.getText()+"'";
 		String blood="select*from bloodbank where BloodGrp= '"+(String)JR1.getSelectedItem()+"'";
 		ResultSet x = null;
 		try {
@@ -160,7 +160,7 @@ public class donor extends JFrame implements ActionListener{
 						c.s.executeUpdate(bloodbankUpdate);
 						JOptionPane.showMessageDialog(null,"Thank You for Donating");
 						setVisible(false);
-						new login().setVisible(true);
+						new home_donor().setVisible(true);
 					}
 				}
 				else
@@ -170,7 +170,7 @@ public class donor extends JFrame implements ActionListener{
 					c.s.executeUpdate(bloodbankUpdate);
 					JOptionPane.showMessageDialog(null,"Thank You for Donating");
 					setVisible(false);
-					new login().setVisible(true);
+					new home_donor().setVisible(true);
 
 				}
 				
