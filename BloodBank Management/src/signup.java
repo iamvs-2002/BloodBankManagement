@@ -201,16 +201,14 @@ public class signup extends JFrame implements ActionListener {
 	
 	private boolean wrongEmail(String text) {
 		// TODO Auto-generated method stub
-		if(text.contains("@gmail.com"))
-		{
-			String a[]=text.split("@gmail.com");
-			if(a.length!=1)
-			{
-				return true;
-			}
-			return false;
-		}
-		return true;
+		String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+                "[a-zA-Z0-9_+&*-]+)*@" + 
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$"; 
+                  
+			Pattern pat = Pattern.compile(emailRegex); 
+			if (text == null) 
+				return false; 
+			return pat.matcher(text).matches();
 	}
 
 
