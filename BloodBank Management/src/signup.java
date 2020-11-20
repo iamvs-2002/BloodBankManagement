@@ -222,10 +222,10 @@ public class signup extends JFrame implements ActionListener {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
 		LocalDateTime now ;  
 		String d=dtf.format(LocalDateTime.now());
-		String query="insert into login (post,username,emailID,Address,phonenumber,password,Date) VALUES"+"("+"'"+(String)JCB4.getSelectedItem()+"' ,"+"'"+(String)JT1.getText()+"',"+"'"+(String)JT3.getText()+"'"+","+
+		String query="insert into user (post,username,emailID,Address,phonenumber,password,Date) VALUES"+"("+"'"+(String)JCB4.getSelectedItem()+"' ,"+"'"+(String)JT1.getText()+"',"+"'"+(String)JT3.getText()+"'"+","+
 					"'"+(String)JT4.getText()+"'"+","+"'"+(String)JT5.getText()+"'"+","+"'"+(String)JP1.getText()+"',"+"'"+d+"'"+")";
-		String query2="select*from login where phonenumber='"+JT5.getText()+"'";
-		String email="select*from login where emailID='"+JT3.getText()+"'";
+		String query2="select*from user where phonenumber='"+JT5.getText()+"'";
+		String email="select*from user where emailID='"+JT3.getText()+"'";
 		//System.out.println(query);
 		try 
 		{
@@ -282,7 +282,7 @@ public class signup extends JFrame implements ActionListener {
 						else
 						{
 							c.s.executeUpdate(query);
-							String query3="select UserID from login where phonenumber='"+JT5.getText()+"'";
+							String query3="select UserID from user where phonenumber='"+JT5.getText()+"'";
 							ResultSet rs=c.s.executeQuery(query3);
 							if(rs.next())
 							{
