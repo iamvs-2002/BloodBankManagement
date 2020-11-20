@@ -27,19 +27,22 @@ public class signup extends JFrame implements ActionListener {
 	 * JL8 DD
 	 * JL9 MM
 	 * JL10 YYYY
-	 */
-	//
+	*/
 	
 	signup(){
+		
 		setFont(new Font("System",Font.BOLD,28));
 		Font f=getFont();
 		FontMetrics fm=getFontMetrics(f);
+		
+		
 		int len1=fm.stringWidth("Blood Bank Management System");
 		int len2=fm.stringWidth(" ");
-		int len3=len1-len2;
+		int len3=len1-len2;//setting the title in the centre
 		String pad="";
 		pad=String.format("%"+len3+"s",pad);
 		setTitle("Blood Bank Management System");
+		
 		
 		JL0=new JLabel("Enter SignUp Details:");
 		JL0.setFont(new Font("Arial",Font.BOLD,22));
@@ -85,7 +88,7 @@ public class signup extends JFrame implements ActionListener {
 		JP2=new JPasswordField(6);
 		
 		JB1=new JButton("Finish");
-		JB1.setForeground(Color.black);
+		JB1.setForeground(Color.black);//background color of the frame
 		
 		JB2=new JButton("Exit");
 		JB2.setForeground(Color.black);
@@ -97,7 +100,7 @@ public class signup extends JFrame implements ActionListener {
 			x=x-1;
 			Year[i]=String.valueOf(x);
 		}
-		JCB1=new JComboBox(Year);
+		JCB1=new JComboBox(Year);//inserting the values in the drop down menu
 		/*Year*/
 		String month[]= {"1","2","3","4","5","6","7","8","9","10","11","12"};
 		JCB2=new JComboBox(month);
@@ -214,12 +217,11 @@ public class signup extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent a)
 	{
-		
 		// TODO Auto-generated method stub
 		connect c=new connect();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
-		   LocalDateTime now ;  
-		   String d=dtf.format(LocalDateTime.now());
+		LocalDateTime now ;  
+		String d=dtf.format(LocalDateTime.now());
 		String query="insert into login (post,username,emailID,Address,phonenumber,password,Date) VALUES"+"("+"'"+(String)JCB4.getSelectedItem()+"' ,"+"'"+(String)JT1.getText()+"',"+"'"+(String)JT3.getText()+"'"+","+
 					"'"+(String)JT4.getText()+"'"+","+"'"+(String)JT5.getText()+"'"+","+"'"+(String)JP1.getText()+"',"+"'"+d+"'"+")";
 		String query2="select*from login where phonenumber='"+JT5.getText()+"'";
@@ -227,41 +229,41 @@ public class signup extends JFrame implements ActionListener {
 		//System.out.println(query);
 		try 
 		{
-			if(a.getSource()==JB1)
+			if(a.getSource()==JB1)//button jb1 is clicked
 			{
 				//String ID=r.getString("UserID");
 				if(JP1.getText().equals(JP2.getText()))
 				{
 					ResultSet r1=c.s.executeQuery(email);
-					if(JT1.getText().isEmpty())
+					if(JT1.getText().isEmpty())//checks if the username is empty
 					{
 						JT1.setText("");
 						JOptionPane.showMessageDialog(null,"UserName Cannot be Empty");
 					}
 					else if(checkDate((String)JCB1.getSelectedItem(),(String)JCB2.getSelectedItem(),(String)JCB3.getSelectedItem()))
-					{
+					{//checks if the dob is invalid
 						JOptionPane.showMessageDialog(null,"Invalid Date");
 					}
-					else if(wrongEmail(JT3.getText())&&JT3.getText()!=null)
+					else if(wrongEmail(JT3.getText())&&JT3.getText()!=null)//checks if the email is invalid
 					{
 						JT3.setText("");
 						//JT3=new JTextField(10);
 						JOptionPane.showMessageDialog(null,"Incorrect Pattern of emailID");
 					}
 					else if(r1.next())
-					{
+					{//checks if the email already exists in the database
 						JOptionPane.showMessageDialog(null,"EmailID Exists");
 					}
 					else
 					{
 						ResultSet r=c.s.executeQuery(query2);
 						if(JT4.getText().isEmpty())
-						{
+						{//checks if the adress field is empty
 							JT4.setText("");
 							JOptionPane.showMessageDialog(null,"Address Cannot be Empty");
 						}
 						else if(JT5.getText().isEmpty())
-						{
+						{//checks if the phone number is empty
 							JT5.setText("");
 							JOptionPane.showMessageDialog(null,"PhoneNumber Cannot be Empty");
 						}
@@ -269,10 +271,11 @@ public class signup extends JFrame implements ActionListener {
 								JT5.getText().charAt(0)=='3'||JT5.getText().charAt(0)=='4'||JT5.getText().charAt(0)=='5'
 								||JT5.getText().charAt(0)=='+'||JT5.getText().charAt(0)=='-')
 						{
+							//checks if the phone number is invalid
 							JOptionPane.showMessageDialog(null,"PhoneNumber is incorrect");
 						}
 						else if(r.next())
-						{
+						{//checks if the phone number already exists in the data base
 							JOptionPane.showMessageDialog(null,"Phonenumber Exists");
 						}
 						else
@@ -292,15 +295,15 @@ public class signup extends JFrame implements ActionListener {
 					}
 				}
 				else
-				{
+				{//checks if the password matches with the confirm password
 					JP1.setText("");
 					JP2.setText("");
-					JOptionPane.showMessageDialog(null,"password doesnot match enter again");
+					JOptionPane.showMessageDialog(null,"Error: Passwords do not match! Kindly enter again.");
 				}
 				
 			}
 			else if(a.getSource()==JB2)
-			{
+			{//if user clicks on exit button
 				int c1=JOptionPane.showConfirmDialog(null,"All changes will be lost\n Do You want to exit");
 				if(c1==0)
 				{
@@ -313,7 +316,7 @@ public class signup extends JFrame implements ActionListener {
 		}
 		
 	}
-	private boolean checkDate(String Year,String Month,String Day) {
+	private boolean checkDate(String Year,String Month,String Day) { //checking if the date is valid...not a future date or leap year concerns
 		// TODO Auto-generated method stub
 		int check=Integer.parseInt(Year);
 
