@@ -20,10 +20,10 @@ public class receiver extends JFrame implements ActionListener
 		JL1=new JLabel("Welcome to Reciever Portal");
 		JL1.setFont(new Font("Osward",Font.CENTER_BASELINE,38));
 		
-		JL2=new JLabel("Enter Pateint Name:");
+		JL2=new JLabel("Enter Patient Name:");
 		JL2.setFont(new Font("Osward",Font.CENTER_BASELINE,20));
 		
-		JL3=new JLabel("Enter Pateint Age:");
+		JL3=new JLabel("Enter Patient Age:");
 		JL3.setFont(new Font("Osward",Font.CENTER_BASELINE,20));
 		
 		JL4=new JLabel("Staff ID:");
@@ -109,7 +109,7 @@ public class receiver extends JFrame implements ActionListener
 		   LocalDateTime now ;  
 		boolean transaction=false;
 		connect c=new connect();
-		String query="select*from login where UserID="+"'"+JT3.getText()+"'"+" AND "+"post='Staff'";
+		String query="select*from user where UserID="+"'"+JT3.getText()+"'"+" AND "+"post='Staff'";
 		String blood="select*from bloodbank where BloodGrp= '"+(String)JC2.getSelectedItem()+"'";
 		int quantity=0;
 		//ResultSet r=null;
@@ -144,7 +144,7 @@ public class receiver extends JFrame implements ActionListener
 				if(e.getSource()==JB1)
 				{
 					String pass=JOptionPane.showInputDialog(JT1,"Enter Your Password");
-					String q2="select*from login where password='"+pass+"'";
+					String q2="select*from user where password='"+pass+"'";
 					String d=dtf.format(LocalDateTime.now());
 					ResultSet r1=c.s.executeQuery(q2);
 					if(!r1.next())
@@ -157,12 +157,12 @@ public class receiver extends JFrame implements ActionListener
 						if(JT1.getText().isEmpty())
 						{
 							JT1.setText(" ");
-							JOptionPane.showMessageDialog(null,"Pateint Name Cannot Be Empty");
+							JOptionPane.showMessageDialog(null,"Patient Name Cannot Be Empty");
 						}
 						else if(JT2.getText().isEmpty())
 						{
 							JT2.setText(" ");
-							JOptionPane.showMessageDialog(null,"Pateint Age Cannot Be Empty");
+							JOptionPane.showMessageDialog(null,"Patient Age Cannot Be Empty");
 						}
 						else if(JT3.getText().isEmpty())
 						{
@@ -186,7 +186,7 @@ public class receiver extends JFrame implements ActionListener
 						}
 						else
 						{
-							String q="insert into receiver (PateintName,PateintAge,StaffID,BloodGrp,volume,contactNumber,Date) VALUES"+"('"+JT1.getText()+"',"+"'"+JT2.getText()+"',"+"'"+
+							String q="insert into receiver (PatientName,PatientAge,StaffID,BloodGrp,volume,contactNumber,Date) VALUES"+"('"+JT1.getText()+"',"+"'"+JT2.getText()+"',"+"'"+
 									JT3.getText()+"',"+"'"+(String)JC2.getSelectedItem()+"',"+"'"+(String)JC1.getSelectedItem()+"',"+"'"+JT4.getText()+"',"+"'"+d+"'"+")";
 							c.s.executeUpdate(q);
 							c.s.executeUpdate(bloodbankUpdate);
