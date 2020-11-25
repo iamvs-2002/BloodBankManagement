@@ -9,6 +9,9 @@ import java.awt.FontMetrics;
 import javax.swing.*;
 import java.util.*;
 
+//awt stands for abstract window toolkit
+//awt is a java package which builts the view
+
 public class signup extends JFrame implements ActionListener {
 
 	JLabel JL0,JL1,JL2,JL3,JL4,JL5,JL6,JL7,JL8,JL9,JL10;
