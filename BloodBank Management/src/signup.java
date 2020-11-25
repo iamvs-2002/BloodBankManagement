@@ -14,11 +14,11 @@ import java.util.*;
 
 public class signup extends JFrame implements ActionListener {
 
-	JLabel JL0,JL1,JL2,JL3,JL4,JL5,JL6,JL7,JL8,JL9,JL10;
-	JTextField JT1,JT2,JT3,JT4,JT5;
-	JPasswordField JP1,JP2;
-	JButton JB1,JB2;
-	JComboBox JCB1,JCB2,JCB3,JCB4;
+	JLabel JL0,JL1,JL2,JL3,JL4,JL5,JL6,JL7,JL8,JL9,JL10; //text views
+	JTextField JT1,JT2,JT3,JT4,JT5; //edit texts
+	JPasswordField JP1,JP2; //edit texts with input type password
+	JButton JB1,JB2; //buttons with action listener
+	JComboBox JCB1,JCB2,JCB3,JCB4;  //drop down menus
 	/*
 	 * JL1 UserName
 	 * JL2 DOB
@@ -33,6 +33,7 @@ public class signup extends JFrame implements ActionListener {
 	*/
 	
 	signup(){
+		//in this constructor, we will define the global variables
 		
 		setFont(new Font("System",Font.BOLD,28));
 		Font f=getFont();
@@ -41,12 +42,13 @@ public class signup extends JFrame implements ActionListener {
 		
 		int len1=fm.stringWidth("Blood Bank Management System");
 		int len2=fm.stringWidth(" ");
-		int len3=len1-len2;//setting the title in the centre
+		int len3=len1-len2; //setting the title in the centre
 		String pad="";
 		pad=String.format("%"+len3+"s",pad);
 		setTitle("Blood Bank Management System");
 		
 		
+		//Labels
 		JL0=new JLabel("Enter SignUp Details:");
 		JL0.setFont(new Font("Arial",Font.BOLD,22));
 		
@@ -87,21 +89,21 @@ public class signup extends JFrame implements ActionListener {
 		JT4=new JTextField(100);
 		JT5=new JTextField(10);
 		
-		JP1=new JPasswordField(6);
-		JP2=new JPasswordField(6);
+		JP1=new JPasswordField(6); //password
+		JP2=new JPasswordField(6); //confirm password
 		
-		JB1=new JButton("Finish");
+		JB1=new JButton("Finish"); //to save the details and go ahead
 		JB1.setForeground(Color.black);//background color of the frame
 		
-		JB2=new JButton("Exit");
-		JB2.setForeground(Color.black);
+		JB2=new JButton("Exit"); //to exit from the window
+		JB2.setForeground(Color.black); //background color of the frame
 		
 		String Year[]=new String[41];
-		int x=2002;
+		int x=2002; //min age for blood donation is 18, hence the year 2002
 		for(int i=0;i<41;i++)
 		{
 			x=x-1;
-			Year[i]=String.valueOf(x);
+			Year[i]=String.valueOf(x); //the years we need to show in the combo box
 		}
 		JCB1=new JComboBox(Year);//inserting the values in the drop down menu
 		/*Year*/
