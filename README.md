@@ -3,6 +3,8 @@ The Blood Management System is an application through which any person who is in
 Moreover, if any general consumer wants to make a request for blood online he can also take the help of this application. 
 The Blood Management System in java is planned to collect blood from many donors in short from various sources and distribute that blood to needy people who require blood. 
 
+***Technologies used: JavaFx, Swing, MySQL***
+
 
 ### Tables:
 - user
