@@ -4,21 +4,5 @@ Moreover, if any general consumer wants to make a request for blood online he ca
 The Blood Management System in java is planned to collect blood from many donors in short from various sources and distribute that blood to needy people who require blood. 
 
 ***Technologies used: JavaFx, Swing, MySQL***
-
-
-### Tables:
-- user
-  * user(UserID,username,emailID,Address,phonenumber,password,post,Date);
-
-- donor
-  * donor(UserID,BloodGrp,AnyDisease,Quantity,Disease,Date,phonenumber);
-  * FK_1: UserID references user(UserID);
-
-- bloodbank
-  * bloodbank(BloodGrp,Quantity);
-
-- receiver
-  * receiver(PatientID,PateintName,PateintAge,StaffID,BloodGrp,volume,contactNumber,Date);
-
-- staff_transaction
-  * staff_transaction(StaffID,Date,status);
+  
+The project contains a presentation regarding what the project is and a project report.
