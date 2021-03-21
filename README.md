@@ -6,22 +6,23 @@ The Blood Management System in java is planned to collect blood from many donors
 ***Technologies used: JavaFx, Swing, MySQL, Java, JDBC***
 
 
-For the database, we used 5 tables in total:
-● user
-● donor
-● bloodbank
-● receiver
-● staff_transaction
+### For the database, we used 5 tables in total:
+* user
+* donor
+* bloodbank
+* receiver
+* staff_transaction
 
 
-The classes used in this project were:
-● Login
-● ForgotPassword
-● Signup
-● StaffDetails
-● DonorDetails
-● RecipientDetails
-● StockDetails
-● ContactUsInfo
+### The classes used in this project were:
+* Login
+* ForgotPassword
+* Signup
+* StaffDetails
+* DonorDetails
+* RecipientDetails
+* StockDetails
+* ContactUsInfo
+  
   
 The project contains a presentation regarding what the project is and a project report.
